@@ -1,0 +1,54 @@
+<h1 class="mt-4">Serviços Prestados</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Consulta</li>
+</ol>
+<div class="container">
+    <form #cosultarForm="ngForm" (submit)="consultar()">
+        <div class="row">
+            <div class="col-md-6">
+                <label for="inputNome">Nome do Cliente:</label>
+                <input type="text" [(ngModel)]="nome" name="nome" class="form-control" id="inputNome">
+            </div>
+            <div class="col-md-2">
+                <label for="inputMes">Mês:</label>
+                <select [(ngModel)]="mes" class="form-control" name="mes">
+                    <option value="">Selecione...</option>
+                    <option *ngFor="let item of meses" [value]="item">
+                        {{ item }}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="row"> 
+            <div class="col-md-9">
+                <br>
+                <button type="submit" class="btn btn-primary">
+                    <i class="fa fa-search"></i> Consultar
+                </button>
+            </div>
+        </div>
+    </form>
+    <br>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Cliente</th>
+                        <th>Descrição</th>
+                        <th>Valor</th>
+                        <th>Data</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let itens of lista">
+                        <td>{{ itens.cliente.nome }}</td>
+                        <td>{{ itens.descricao }}</td>
+                        <td>{{ itens.valor }}</td>
+                        <td>{{ itens.data }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
