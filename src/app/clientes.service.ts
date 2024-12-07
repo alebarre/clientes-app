@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { Clientes } from './clientes/clientes';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { environments } from '../app/environments/environments'
+import { environments } from '../app/environments/environments';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class ClientesService {
 
   apiURL: string = environments.apiURL;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,  private authService: AuthService) { }
 
   salvarCliente(cliente: Clientes): Observable<Clientes> {
     return this.http.post<Clientes>(this.apiURL + '/api/clientes', cliente);
