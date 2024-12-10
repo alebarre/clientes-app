@@ -14,7 +14,6 @@ export class LoginComponent {
   username: string = "";
   password: string = "";
   errors: string[] = [];
-  loginError: boolean = false;
   cadastrando: boolean = false;
   mensagemSucesso: string | undefined | null;
 
@@ -42,17 +41,6 @@ export class LoginComponent {
     
   }
 
-  // onSubmit(): void {
-  //   this.authService.tentarLogar(this.username, this.password).subscribe(
-  //     (response: any) => {
-  //       const token = response.headers.get('Authorization');
-  //       this.authService.saveToken(token);
-  //       console.log('Login successful!');
-  //     },
-  //     (error) => console.error('Login failed!', error)
-  //   );
-  // }
-
   public prepararParaCadastro(event: any){
     event.preventDefault();
     this.cadastrando = true;
@@ -78,7 +66,6 @@ export class LoginComponent {
     }, errorResponse => {
         this.mensagemSucesso = null;
         this.errors = errorResponse.error.errors;
-        
     })
   }
 

@@ -16,8 +16,8 @@
                                         {{ mensagemSucesso }}
                                     </div>
 
-                                    <div class="alert alert-danger" *ngFor="let erro of errors">
-                                    {{ erro }}
+                                    <div class="alert alert-danger" *ngFor="let ietm of errors">
+                                    {{ ietm }}
                                     </div>
 
                                     <form #loginForm="ngForm" (submit)="onSubmit();">
