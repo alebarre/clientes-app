@@ -29,11 +29,14 @@ export class ServicoPrestadoService {
     
     const url = this.apiURL + "?" + httpParams.toString();
 
-    console.log(url)
-
     return this.http.get<any>(url,  
       {headers: this.authService.getAuthHeaders()})
 
+  }
+
+  public dadosDoServico(id?: number): Observable<ServicoPrestado>{
+    const url = this.apiURL + `/${id}`;
+    return this.http.get<ServicoPrestado>(url);
   }
 
 }

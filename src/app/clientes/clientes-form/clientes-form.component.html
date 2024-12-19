@@ -35,10 +35,69 @@
                     <input type="text" class="form-control" [(ngModel)]="cliente.nome" name="nome"/>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-5">
                 <div class="form-group">
                     <label>CPF:</label>
                     <input type="text" class="form-control" [(ngModel)]="cliente.cpf" name="cpf"/>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>Telefone(1):</label>
+                    <input type="text" class="form-control" [(ngModel)]="cliente.tel1" name="tel1"/>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>Telefone(2):</label>
+                    <input type="text" class="form-control" [(ngModel)]="cliente.tel2" name="tel2"/>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="form-group">
+                    <label>E-mail</label>
+                    <input type="text" class="form-control" [(ngModel)]="cliente.email" name="email"/>
+                </div>
+            </div>
+            <div class="col-md-3">                <div class="form-group">
+                    <label>CEP:</label>
+                    <input type="text" class="form-control" id="cep" name="cep" [(ngModel)]="cepValue" #cep="ngModel" (blur)="consultaCep()"/>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label>Número:</label>
+                    <input type="text" class="form-control" [(ngModel)]="endereco.numero" name="numero"/>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Complemento:</label>
+                    <input type="text" class="form-control" [(ngModel)]="endereco.complemento" name="complemento"/>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="form-group">
+                    <label>Rua:</label>
+                    <input type="text" class="form-control" [(ngModel)]="endereco.rua" name="rua"/>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>Bairro:</label>
+                    <input type="text" class="form-control" [(ngModel)]="endereco.bairro" name="bairro"/>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>Cidade:</label>
+                    <input type="text" class="form-control" [(ngModel)]="endereco.cidade" name="cidade"/>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label>Estado:</label>
+                    <input type="text" class="form-control" [(ngModel)]="endereco.estado" name="estado"/>
                 </div>
             </div>
         </div>
@@ -50,7 +109,7 @@
                 <button type="submit" class="btn btn-success ml-1" *ngIf="cliente.id">
                     <i class="fa fa-sync-alt"></i> Atualizar
                 </button>
-                <button type="button" class="btn btn-primary ml-1" (click)="voltarPartaListagem()">
+                <button type="button" class="btn btn-primary ml-1" (click)="voltarParaListagem()">
                     <i class="fa fa-arrow-alt-circle-left"></i> Voltar
                 </button>
             </div>

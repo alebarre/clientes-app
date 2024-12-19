@@ -1,0 +1,42 @@
+<div id="modalCard" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content" style="position: static;" style="width: 18rem">
+        <div class="modal-header">
+          <div class="card">
+            <div class="card-body">
+              <h2 class="card-title">{{ clientesCard?.nome || 'N/A' }}</h2>
+              <p class="card-text">
+              </p>
+            </div>
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">DETALHES DO CLIENTE</h5>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <h4>Contato:</h4> 
+                    {{ clientesCard?.tel1 || 'N/A' }}
+                    {{ clientesCard?.email || 'N/A' }}
+                </li>
+                <li class="list-group-item">
+                  Data do Cadastro: {{ clientesCard?.dataCadastro || 'N/A' }}
+                </li>
+                <li class="list-group-item">
+                  Endereço: {{ clientesCard?.endereco?.[0]?.rua || 'N/A' }}
+                </li>
+                <li class="list-group-item">
+                  {{ clientesCard?.endereco?.[0]?.bairro || 'N/A' }} /
+                  {{ clientesCard?.endereco?.[0]?.cidade || 'N/A' }} /
+                  {{ clientesCard?.endereco?.[0]?.estado || 'N/A' }}
+                </li>
+              </ul>
+              <button class="btn btn-warning" data-bs-dismiss="modal">
+                Cancela
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

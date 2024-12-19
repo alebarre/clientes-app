@@ -1,9 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Clientes } from './clientes/clientes';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environments } from '../app/environments/environments';
 import { AuthService } from './auth.service';
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 @Injectable({
   providedIn: 'root'
@@ -15,11 +19,11 @@ export class ClientesService {
   constructor(private http: HttpClient,  private authService: AuthService) { }
 
   salvarCliente(cliente: Clientes): Observable<Clientes> {
-    return this.http.post<Clientes>(this.apiURL + '/api/clientes', cliente);
+    return this.http.post<Clientes>(this.apiURL + '/api/clientes', cliente, httpOptions);
   }
 
   atualizarCliente(cliente: Clientes): Observable<any> {
-    return this.http.put<Clientes>(this.apiURL + `/api/clientes/${cliente.id}`, cliente);
+    return this.http.put<Clientes>(this.apiURL + `/api/clientes/${cliente.id}`, cliente, httpOptions);
   }
 
   listarTodosClientes(): Observable<Clientes[]> {
