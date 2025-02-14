@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TemplateModule } from "./template/template.module";
+import { TemplateModule } from './template/template.module';
 import { HomeComponent } from './home/home.component';
 import { ClientesModule } from './clientes/clientes.module';
 import { ClientesService } from './clientes.service';
@@ -17,12 +17,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { AuthInterceptor } from './AuthIntercecptor';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    LoginComponent,
-    LayoutComponent
-  ],
+  declarations: [AppComponent, HomeComponent, LoginComponent, LayoutComponent],
   imports: [
     HttpClientModule,
     CommonModule,
@@ -31,13 +26,13 @@ import { AuthInterceptor } from './AuthIntercecptor';
     AppRoutingModule,
     TemplateModule,
     ClientesModule,
-    ServicoPrestadoModule
-],
+    ServicoPrestadoModule,
+  ],
   providers: [
     ClientesService,
     ServicoPrestadoService,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

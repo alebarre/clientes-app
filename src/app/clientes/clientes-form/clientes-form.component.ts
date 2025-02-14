@@ -66,7 +66,7 @@ export class ClientesFormComponent implements OnInit {
     if (this.id) {
       this.service.atualizarCliente(this.cliente).subscribe(
         (res) => {
-          this.success = true
+          this.success = true;
           this.populateClienteFromResponse(res);
         },
         (errorResponse) => {
@@ -78,9 +78,8 @@ export class ClientesFormComponent implements OnInit {
     } else {
       this.service.salvarCliente(this.cliente).subscribe(
         (res) => {
-          this.success = true
+          this.success = true;
           this.populateClienteFromResponse(res);
-
         },
         (errorResponse) => {
           this.errors = [];
@@ -102,14 +101,13 @@ export class ClientesFormComponent implements OnInit {
 
     if (res.endereco && res.endereco[0]) {
       Object.keys(res.endereco[0]).forEach((key) => {
-        if(key === "cep"){
+        if (key === 'cep') {
           this.cepValue = res.endereco[0][key];
         } else {
           (this.endereco as any)[key] = res.endereco[0][key];
         }
       });
     }
-
   }
 
   private handleError(errorResponse: any) {
